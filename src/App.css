@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700;900&display=swap');
+
+body, html {
+font-family: 'Noto Sans TC', sans-serif;
+}
+
 .App {
   text-align: center;
 }
