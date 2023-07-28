@@ -1,4 +1,4 @@
-import styles from "../styles/Cart.module.css"
+import styles from "./Cart.module.css"
 import { listData } from "./listData.js"
 import { ReactComponent as PlusBtn } from "../../icons/plus.svg"
 import { ReactComponent as MinusBtn } from "../../icons/minus.svg"
