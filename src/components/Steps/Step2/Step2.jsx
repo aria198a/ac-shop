@@ -47,7 +47,7 @@ export default function Step2({setShippingPrice}) {
             </div>
             <div className="styles.period">48 小時內送達</div>
           </div>
-          <div className={styles.radioboxBorder}>$109</div>
+          <div className={styles.radioboxBorder}>$400</div>
         </label>
       </section>
     </form>
