@@ -1,50 +1,51 @@
+.progressControlContainer {
+  display: flex;
+  flex-direction: column;
+  width: 540px;
+}
+
 .buttonGroup {
-    position: relative;
-    display: flex;
-    width: 100%;
-    min-height: 70px;
-    display: flex;
-    justify-content: space-between;
-    align-content: flex-end;
-    max-width: 500px;
-    border-top: solid #E6E6EB 1px;
-  }
-  
-  .btnPrevious {
-    align-self: flex-end;
-    background-color: transparent;
-    line-height: 20px;
-    font-weight: 900;
-    color: #000000;
-    height: 46px;
-    font-size: 14px;
-    border-radius: 8px;
-    border-width: 0px;
-    padding: 0px;
-  }
-  
-  .btnNext {
-    position: absolute;
-    right: 0;
-    align-self: flex-end;
-    background-color: #F67599;
-    line-height: 20px;
-    font-weight: 900;
-    color: #FFFFFF;
-    width: 110px;
-    height: 46px;
-    font-size: 14px;
-    border-radius: 8px;
-    border-width: 0px;
-    padding: 0px;
-  }
-  
-  .btnNext:nth-child(1) {
-    width: 100%;
-  }
-  
-  @media screen and (min-width: 600px) {
-    .btnNext:nth-child(1), .btnNext{
-        width: 174px;
-      }
-  }
+  display: flex;
+  justify-content: space-between;
+  padding-top: 24px;
+  border-top: 1px solid #E6E6EB;
+}
+
+.buttonGroup1 {
+  justify-content: end;
+}
+
+
+.next, .prev {
+  display: flex;
+  align-items: center;
+  width: 174px;
+  height: 46px;
+  border-radius: 10px;
+  border: none;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.next {
+  justify-content: center;
+  background-color: #f67599;
+  color: white;
+}
+
+.prev {
+  background: none;
+}
+
+.start {
+  visibility: hidden;
+}
+
+.arrowLeft {
+  fill: black;
+  margin-right: 12px;
+}
+
+.arrowRight {
+  margin-left: 12px;
+}

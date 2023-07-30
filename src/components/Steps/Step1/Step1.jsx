@@ -6,7 +6,7 @@ function GenderData({ data }) {
     <select className={styles.selectStyle}>
       {data.map((gender) => {
         return(
-          <option value={gender.value}>
+          <option key={gender.value} value={gender.value}>
             {gender.type}
           </option>
         )
@@ -20,7 +20,7 @@ function CityData({ data }) {
     <select className={styles.selectStyle} required>
       {data.map((city) => {
         return(
-          <option value={city.value}>
+          <option key={city.value} value={city.value}>
             {city.name}
           </option>
         )
