@@ -1,19 +1,21 @@
 import styles from "./Cart.module.css"
-import { useState } from "react"
-import { listData } from "./listData.js"
+import { useContext } from "react"
+import { CartContext } from "../../context/CartContext"
 import { ReactComponent as PlusImg } from "../../icons/plus.svg"
 import { ReactComponent as MinusImg } from "../../icons/minus.svg"
 
-function Product({item, handleMinus, handlePlus}) {
+function Product({item}) {
+  const {handleMinus, handlePlus} = useContext(CartContext);
+
   return (
     <div className={styles.productContainer} key={item.id}>
-      <img className={styles.imgContainer} alt={item.name} src={item.image}/>
+      <img className={styles.imgContainer} alt={item.name} src={item.image} />
       <div className={styles.productInfo}>
         <div className={styles.productName}>{item.name}</div>
         <div className={styles.productControlContainer}>
           <div className={styles.productControl}>
             <MinusImg
-              className={styles.productAction} 
+              className={styles.productAction}
               onClick={() => handleMinus(item.id)}
             />
             <span className={styles.productCount}>{item.quantity}</span>
@@ -29,73 +31,27 @@ function Product({item, handleMinus, handlePlus}) {
   );
 }
 
-function CartItem({ shippingPrice }) {
-  const [cartProduct, setCartProduct] = useState(listData);
-
-  function handleClickPlus(id) {
-    const newCartProduct = cartProduct.map((product) => {
-      if (product.id === id) {
-        return {
-          ...product,
-          quantity: product.quantity + 1,
-        };
-      } else {
-        return product;
-      }
-    });
-    setCartProduct(newCartProduct)
-  }
-
-  function handleClickMinus(id) {
-    const newCartProduct = cartProduct.map((product) => {
-      if (product.id === id && product.quantity > 0) {
-        return {
-          ...product,
-          quantity: product.quantity - 1
-        }
-      } else {
-        return product
-      }
-    })
-    setCartProduct(newCartProduct.filter(product => product.quantity !== 0))
-  }
-
-  function addTotalPrice() {
-    const totalPrice = cartProduct.reduce((total, product) => {
-      return total + (product.quantity * product.price)
-    }, 0)
-
-    if (totalPrice !== 0) {
-      return totalPrice + shippingPrice;
-    } else {
-      return 0
-    }
-    
-  }
+function CartItem() {
+  const {currentProduct, allPrice, shippingPrice} = useContext(CartContext);
 
   return (
     <section className={styles.productList}>
-      {cartProduct.map((item) => (
-        <Product
-          item={item}
-          key={item.id}
-          handleMinus={handleClickMinus}
-          handlePlus={handleClickPlus}
-        />
+      {currentProduct.map((item) => (
+        <Product item={item} key={item.id} />
       ))}
 
       <section className={styles.cartInfo}>
         <div className={styles.text}>運費</div>
         <div className={styles.price}>
-          {shippingPrice === 0 ? "免費" : "$"+shippingPrice}
+          {shippingPrice === 0 ? "免費" : "$" + shippingPrice}
         </div>
       </section>
       <section className={styles.cartInfo}>
         <div className={styles.text}>小計</div>
-        <div className={styles.price}>${addTotalPrice()}</div>
+        <div className={styles.price}>${allPrice}</div>
       </section>
     </section>
   );
 }
 
-export default CartItem
+export default CartItem;

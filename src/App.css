@@ -1,9 +1,75 @@
-.mainContainer {
-  position: relative;
-  display: flex;
-  justify-content: space-around;
+/* Rest CSS */
+body {
+  margin: 0;
+  padding: 0;
 }
 
-.formContainer {
-  width: 540px;
+* {
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0px;
+  padding: 0px;
+}
+
+ul,
+ol,
+li {
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+}
+
+a,
+a:hover,
+a:focus {
+  text-decoration: none;
+}
+
+img {
+  display: inline-block;
+}
+
+.btn,
+button,
+button:focus,
+input:focus,
+textarea:focus,
+select,
+select:focus,
+a:focus {
+  /* !important用於覆蓋可能已應用於元素輪廓的任何其他現有樣式 */
+  outline: 0px;
+}
+
+button {
+  border: 0;
+  cursor: pointer;
+}
+
+button[disabled] {
+  pointer-events: none;
+}
+
+input {
+  padding: 0 5px;
+}
+
+input:required {
+  box-shadow: none;
+}
+
+input:invalid {
+  box-shadow: none;
+}
+
+#root {
+  margin: 0 165px;
 }
