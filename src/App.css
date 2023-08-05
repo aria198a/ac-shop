@@ -45,7 +45,6 @@ textarea:focus,
 select,
 select:focus,
 a:focus {
-  /* !important用於覆蓋可能已應用於元素輪廓的任何其他現有樣式 */
   outline: 0px;
 }
 

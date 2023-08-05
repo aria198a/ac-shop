@@ -10,14 +10,10 @@ function App() {
   return (
     <div>
     <Header />
-    <main className="mainContainer">
       <CartContextProvider>
         <Form/>
-        <div className="cartSideContainer">
           <Cart/>
-        </div>
       </CartContextProvider>
-    </main>
     <Footer />
     </div>
   );
