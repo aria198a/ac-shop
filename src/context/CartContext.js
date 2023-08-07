@@ -6,7 +6,6 @@ const CartContext = createContext()
 function CartContextProvider({children}) {
   const [currentProduct, setCurrentProduct] = useState(listData)
   const [shippingPrice, setShippingPrice] = useState(0)
-  const [lastSelectedShipping, setLastSelectedShipping] = useState("standard")
   const allPrice = addTotalPrice()
 
     function handlePlus(id) {
@@ -50,13 +49,9 @@ function CartContextProvider({children}) {
     setShippingPrice(price)
   }
 
-  function updateShippingPrice(selectedShipping) {
-    setLastSelectedShipping(selectedShipping)
-  }
-
 
   return (
-    <CartContext.Provider value={{currentProduct, handlePlus, handleMinus, addShippingPrice, allPrice, shippingPrice, lastSelectedShipping, updateShippingPrice}}>
+    <CartContext.Provider value={{currentProduct, handlePlus, handleMinus, addShippingPrice, allPrice, shippingPrice}}>
       {children}
     </CartContext.Provider>
   )

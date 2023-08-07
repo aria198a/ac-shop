@@ -1,20 +1,11 @@
 import styles from "./Step2.module.css"
 import { useState, useContext } from "react";
-import { useEffect } from "react";
 import { CartContext } from "../../../context/CartContext";
 
 function StepTwo() {
-  const { 
-    addShippingPrice, 
-    lastSelectedShipping, 
-    updateShippingPrice 
-  } = useContext(CartContext);
+  const {  addShippingPrice } = useContext(CartContext);
 
-  const [shipping, setShipping] = useState(lastSelectedShipping);
-
-  useEffect(() => {
-    setShipping(lastSelectedShipping);
-  }, [lastSelectedShipping]);
+  const [shipping, setShipping] = useState(0);
 
   const handleSelectedShipping = (e) => {
     const selectedShipping = e.target.id;
@@ -24,7 +15,6 @@ function StepTwo() {
     } else if (selectedShipping === "DHL") {
       addShippingPrice(500);
     }
-    updateShippingPrice(selectedShipping);
   }
 
   return (
